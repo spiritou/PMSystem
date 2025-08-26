@@ -1,0 +1,8 @@
+# Composer
+/vendor/
+
+# Environment files
+.env
+
+# Some images used to guide my design
+/Img/
