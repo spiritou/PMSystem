@@ -9,7 +9,8 @@ class BaseController
     {
         session_start();
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /login');
+            //header('Location: /login');
+            echo "Not logged in. Please log in first.";
             exit();
         }
     }

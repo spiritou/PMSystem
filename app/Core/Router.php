@@ -20,7 +20,8 @@ class Router
     {
       $method = $_SERVER['REQUEST_METHOD'];
       $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-      $this->routes[$method][$path] = $controllerAction ?? null;
+      $path = str_replace('/PMSystem/public', '', $path); // Adjust based on your setup
+      $controllerAction = $this->routes[$method][$path] ?? null;
 
       if (isset($controllerAction)) {
         list($controller, $action) = explode('@', $controllerAction);
