@@ -1,0 +1,8 @@
+{
+    "name": "mbanzoulou/pm_ystem01",
+    "description": "A simple PHP MVC framework for managing working hours",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "proprietary"
+}
