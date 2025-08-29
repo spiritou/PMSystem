@@ -4,7 +4,7 @@ namespace app\Core;
 
 class Container
 {
-    private $instances = [];
+   
 
    public function get($class)
    {
@@ -14,5 +14,17 @@ class Container
       if(is_null($constructor)) {
          return new $class;
       }
+
+       $dependencies = [];
+
+       foreach ($constructor->getParameters() as $parameter) {
+            $type = $parameter->getType();
+            if($type && !$type->isBuiltin()) {
+                $depClassName = $type->getName();
+                $dependencies[] = $this->get($depClassName);
+            }
+       }
+
+         return $reflectionClass->newInstanceArgs($dependencies);
    }
 }
