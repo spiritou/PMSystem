@@ -28,4 +28,10 @@ class User
         $stmt->execute([$username]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllUsers()
+    {
+        $stmt = $this->conn->query("SELECT id, username, role FROM users");
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
