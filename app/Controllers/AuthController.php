@@ -30,7 +30,13 @@ class AuthController
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
             //header('Location: /dashboard'); // Redirect to a protected page
-            echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
+            //echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
+            if ($user['role'] === 'admin') {
+                header('Location: /admin-dashboard'); // Redirect to admin dashboard
+            } else {
+                header('Location: /user-dashboard'); // Redirect to user dashboard
+            }
+            exit();
         } else {
             echo "Invalid credentials. Please try again.";
         }
