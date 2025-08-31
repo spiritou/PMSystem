@@ -12,7 +12,7 @@ class UserController
         require_once VIEWS_PATH . '/users/index.php';
     }
 
-    private function create()
+    public function create()
     {
         require_once VIEWS_PATH . '/users/create.php';
     }

@@ -1,3 +1,3 @@
 <?php
 
-echo "this is the login page";
+echo "this is the create page";

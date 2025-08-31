@@ -15,6 +15,7 @@ use app\Core\Container;
 $container = new Container();
 $router = $container->get(Router::class);
 $router->get('/login', 'AuthController@login');
+$router->get('/create-user', 'UserController@create');
 [$controller, $action] = $router->run();
 $controller = "app\\Controllers\\$controller";
 $controllerInstance = $container->get($controller);
