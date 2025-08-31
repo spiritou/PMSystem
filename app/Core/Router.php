@@ -24,10 +24,11 @@ class Router
       $controllerAction = $this->routes[$method][$path] ?? null;
 
       if (isset($controllerAction)) {
-        list($controller, $action) = explode('@', $controllerAction);
+        return explode('@', $controllerAction);
+        /*list($controller, $action) = explode('@', $controllerAction);
         $controller = "app\\Controllers\\$controller";
         $controllerInstance = new $controller();
-        $controllerInstance->$action();
+        $controllerInstance->$action();*/
       }
         else {
             http_response_code(404);

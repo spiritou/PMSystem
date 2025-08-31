@@ -2,11 +2,13 @@
 
 namespace app\Controllers;
 
+use app\Models\User;
+
 class AuthController
 {
     private $userModel;
 
-    public function __construct($userModel)
+    public function __construct(User $userModel)
     {
         $this->userModel = $userModel;
     }

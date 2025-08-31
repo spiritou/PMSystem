@@ -1,6 +1,7 @@
 <?php
 
 namespace app\Models;
+use app\Core\Database;
 
 class User
 {
@@ -10,9 +11,9 @@ class User
     private $role;
     private $conn;
 
-    public function __construct($conn)
+    public function __construct(Database $conn)
     {
-        $this->conn = $conn;
+        $this->conn = $conn->getConnection();
     }
    
     public function save($username, $password, $role)
