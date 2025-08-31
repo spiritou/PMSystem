@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <form action="" method="post">
+        <form action="<?= APP_URL ?>/authenticate" method="post">
             <h2>Login</h2>
             <div class="input-group">
                 <input type="text" name="username" placeholder="Username" required>

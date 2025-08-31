@@ -24,12 +24,13 @@ class AuthController
         $password = $_POST['password'];
         $user = $this->userModel->findByUsername($name);
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['hashed_pass'])) {
             session_start();
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['users_id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            header('Location: /dashboard'); // Redirect to a protected page
+            //header('Location: /dashboard'); // Redirect to a protected page
+            echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
         } else {
             echo "Invalid credentials. Please try again.";
         }
