@@ -14,7 +14,7 @@ class AuthController
     }
     public function login()
     {
-        require_once VIEWS_PATH . '/login.php';
+        require_once VIEWS_PATH . '/auth/login.php';
     }
 
     public function authenticate()
