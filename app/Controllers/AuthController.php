@@ -29,13 +29,8 @@ class AuthController
             $_SESSION['user_id'] = $user['users_id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            //header('Location: /dashboard'); // Redirect to a protected page
+            header('Location:'. APP_URL . '/dashboard'); // Redirect to a protected page
             //echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
-            if ($user['role'] === 'admin') {
-                header('Location: /admin-dashboard'); // Redirect to admin dashboard
-            } else {
-                header('Location: /user-dashboard'); // Redirect to user dashboard
-            }
             exit();
         } else {
             echo "Invalid credentials. Please try again.";
@@ -46,5 +41,10 @@ class AuthController
     public function logout()
     {
         // Handle logout logic
+        session_start();
+        $_SESSION = [];
+        session_destroy();
+        header('Location:'. APP_URL . '/login'); // Redirect to login page
+        exit();
     }
 }
