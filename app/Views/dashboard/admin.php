@@ -20,6 +20,8 @@
                 </label>
                 <nav class="menu-nav">
                     <ul>
+                        <li><a href="<?= APP_URL ?>/records">All Rrecords</a></li>
+                        <li><a href="<?= APP_URL ?>/users">Users Management</a></li>
                         <li><a href="<?= APP_URL ?>/logout">Logout</a></li>
                     </ul>
                 </nav>
