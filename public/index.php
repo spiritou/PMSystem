@@ -19,6 +19,7 @@ $router->get('/create-user', 'UserController@create');
 $router->post('/authenticate', 'AuthController@authenticate');
 $router->get('/dashboard', 'DashboardController@index');
 $router->get('/logout', 'AuthController@logout');
+$router->get('/users', 'UserController@displayusers');
 [$controller, $action] = $router->run();
 $controller = "app\\Controllers\\$controller";
 $controllerInstance = $container->get($controller);
