@@ -32,7 +32,7 @@ class User
 
     public function getAllUsers()
     {
-        $stmt = $this->conn->query("SELECT id, username, role FROM users");
+        $stmt = $this->conn->query("SELECT users_id, username, role FROM users");
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
